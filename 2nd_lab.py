@@ -22,10 +22,8 @@ def pixel_to_inch(value):
 # this function will print graph due to all demands
 def print_graph(x, y):
     plt.figure(figsize=(pixel_to_inch(960), pixel_to_inch(540)))
-    plt.plot(y, x, 'o')
-    plt.xlabel('y - axis')
-    plt.ylabel('x - axis')
-    plt.title('The graph for DS7 coordinates would be: ')
+    plt.scatter(y, x, 1)
+    plt.title('The picture for DS7 would be: ')
     plt.show()
 
 
