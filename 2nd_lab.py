@@ -6,10 +6,12 @@ import matplotlib.pyplot as plt
 def get_coordinates(file_name):
     x, y = [], []
     with open(file_name, 'r') as f:
-        for line in f:
-            row = line.split()
-            x.append(row[0])
-            y.append(row[1])
+        for line in f.readlines():
+            coord = line.strip().split()
+            if len(coord) >= 2:
+                x.append(int(coord[0]))
+                y.append(int(coord[1]))
+    f.close()
     return x, y
 
 
@@ -21,9 +23,9 @@ def pixel_to_inch(value):
 
 # this function will print graph due to all demands
 def print_graph(x, y):
-    plt.figure(figsize=(pixel_to_inch(960), pixel_to_inch(540)))
-    plt.scatter(y, x, 1)
+    plt.subplots(figsize=(pixel_to_inch(960), pixel_to_inch(540)))
     plt.title('The picture for DS7 would be: ')
+    plt.scatter(x, y, 0.2)
     plt.show()
 
 
